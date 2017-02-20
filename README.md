@@ -1,5 +1,6 @@
 # Miya Analytics
 
+[![Build Status](https://travis-ci.org/miya0001/miya-analytics.svg?branch=master)](https://travis-ci.org/miya0001/miya-analytics)
 
 A WordPress plugin which output the code of the Google Analytics.
 
