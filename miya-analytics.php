@@ -66,7 +66,11 @@ class Miya_Analytics
 
 	public static function get_code()
 	{
-
+		/**
+		 * Filters and activates the Tracking ID of the Google Analytics.
+		 *
+		 * @param string $tracking_id The Tracking ID.
+		 */
 		$tracking_id = apply_filters( 'miya_analytics_tracking_id', '' );
 
 		$code =<<<EOL
@@ -75,12 +79,12 @@ class Miya_Analytics
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'XXXXXXXX', 'auto');
+ga('create', '%s', 'auto');
 ga('send', 'pageview');
 EOL;
 
 		if ( $tracking_id ) {
-			return str_replace( 'XXXXXXXX', $tracking_id, $code );
+			return sprintf( $code, $tracking_id );
 		}
 	}
 }
