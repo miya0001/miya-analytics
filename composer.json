@@ -1,5 +1,6 @@
 {
     "require": {
-        "miya/gh-auto-updater": "^1.0"
+        "miya/gh-auto-updater": "^1.0",
+        "phpunit/phpunit": "5.6"
     }
 }
