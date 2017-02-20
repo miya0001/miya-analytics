@@ -17,6 +17,20 @@ env:
 
 before_script:
   - bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
+  - composer install
 
 script:
   - phpunit
+
+after_success:
+  - sed -i -e "s/nightly/${TRAVIS_TAG}/" $(basename $TRAVIS_REPO_SLUG).php
+  - curl https://raw.githubusercontent.com/miya0001/auto-build/master/auto-build.sh | bash
+
+deploy:
+  provider: releases
+  api_key:
+    secure: LibICyAmnoXGoDIfvvjF6AV/Dmbw2TwUyTIheOUeS2PEBnmtIYe9aC8v+KGTp0Z2thPl9ZRcJfCahIC13a3fTJR9X8cz0aVyds8j6fNeYHBAEPV84D4d//IzFOrrS9YWwPIHvM/NxXMAAKfry+7QMiky6uUH/cWgqHUpuDT/9iMGw8fmOlZIl+8tC8VDOXR3VVkzfQtFHR2SYCDc+OvGHOssdSqvGgEQtK52w+1zf4z27/ZoAnskDfNbxMpPZcAu6pVosLBCLwm3pbKWIIQ/AnrL/i6TdnUPcKQC38E+RpWLhJP69se1m0g7Lr7cvlweRZzrORRPKawcdRLCfKzncRvStgAzx9Jq03W1IfcFXEuaQxgZxSL1NsqVDBHodrRfVE7Z+BjqLBXeCGL+hjO5RfV/34HGZMcfakb7/zSvfXDxmFh1+JxXHunkwR853bKVlLClf/xJJjPFhN/TPAD/GwTeqr1q8Kph3YUpvAqzEB/n879PPyQgxtb0D3+nQvAoBoaQZafPo0tTfJIZ2ROt+jHGTCBgSj/r27uySjpbm5ILohW+GOH2TmXE+TKzDMYWwamkWidcqe/F7L4N5x4SbX24S8+tRLk3JJbtZLi9lZUVO78+oKqkEDxfWT9XmToypuhf6gue7Gwm1s5uCmLs6TEm9u9Ycf+EGyCL8Zy/E2I=
+  file: $(basename $TRAVIS_REPO_SLUG).zip
+  on:
+    tags: true
+    repo: miya0001/miya-analytics
