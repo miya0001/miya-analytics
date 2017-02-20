@@ -5,7 +5,7 @@
 A WordPress plugin which output the code of the Google Analytics.
 
 * Compatible with [Content Secutiry Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
-* No admin, put tracking ID ad a code. :)
+* No admin, put tracking ID as a code. :smile:
 
 ## How to Activate
 

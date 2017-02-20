@@ -44,13 +44,15 @@ class Miya_Analytics
 
 	public function wp_enqueue_scripts()
 	{
-		wp_enqueue_script(
-			'google-analytics',
-			home_url( '/analytics/' ),
-			array(),
-			date( 'Ymd' ),
-			false
-		);
+		if ( is_user_logged_in() ) {
+			wp_enqueue_script(
+				'google-analytics',
+				home_url( '/analytics/' ),
+				array(),
+				date( 'Ymd' ),
+				false
+			);
+		}
 	}
 
 	public function template_redirect()
