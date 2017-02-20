@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/miya0001/miya-analytics.svg?branch=master)](https://travis-ci.org/miya0001/miya-analytics)
 
-A WordPress plugin which output the code of the Google Analytics.
+A WordPress plugin which outputs the code of the Google Analytics.
 
 * Compatible with [Content Secutiry Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
 * No admin, put tracking ID as a code. :smile:
