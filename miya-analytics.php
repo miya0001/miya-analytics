@@ -44,7 +44,7 @@ class Miya_Analytics
 
 	public function wp_enqueue_scripts()
 	{
-		if ( is_user_logged_in() ) {
+		if ( ! is_user_logged_in() ) {
 			wp_enqueue_script(
 				'google-analytics',
 				home_url( '/analytics/' ),
